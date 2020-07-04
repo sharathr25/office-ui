@@ -1,0 +1,11 @@
+.radio {
+    display: inline-flex;
+    border-radius: 20px;
+    padding: 10px;
+    &--isActive {
+        background-color: #ececec;
+    }
+    &__label {
+        font-weight: lighter;;
+    }
+}

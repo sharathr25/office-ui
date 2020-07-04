@@ -1,0 +1,27 @@
+.login {
+    display: flex;
+    height: 100vh;
+    &__welcome {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 55%;
+        justify-content: center;
+        align-items: center;
+    }
+    &__form {
+        display: flex;
+        flex-basis: 45%;
+        justify-content: center;
+        align-items: center;
+        background-color: #ececec;
+    } 
+    &__company-name{
+        align-self: flex-start;
+        margin: 10px 20px;
+    }
+    &__welcome {
+        color: gray;
+        font-size: 60px;
+        flex-basis: 98%;
+    }
+}

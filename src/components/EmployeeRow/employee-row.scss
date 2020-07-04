@@ -1,0 +1,35 @@
+.employee-row {
+    display: flex;
+    background-color: #F5F5F5;
+    margin: 2px 0px;
+    padding: 10px;
+    font-weight: lighter;
+    font-size: 25px;
+    &__name {
+        display: flex;
+        flex: 0 1 40%;
+        font-weight: bolder;
+    }
+    &__team {
+        display: flex;
+        flex: 0 1 20%;
+    }
+    &__role {
+        display: flex;
+        flex: 0 1 20%;
+    }
+    &__actions {
+        display: flex;
+        flex: 0 1 20%;
+        align-items: center;
+    }
+    &--no-bg {
+        background-color: white;
+        color: gray;
+    }
+    &__img {
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+    }
+}

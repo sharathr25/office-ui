@@ -1,0 +1,31 @@
+.admin {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        background-color: #ececec;
+        height: 100vh;
+        &-heading {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+        }
+        &-title {
+            color: gray;
+            font-size: 25px;
+            font-weight: lighter;
+        }
+    }
+    &__add {
+        background-color: #CBBACF;
+        color: #717599;
+        border: 0px;
+        border-radius: 25px;
+        padding: 10px 15px;
+        font-weight: bolder;
+        font-size: 18px;
+        &--hover {
+            background-color: #7E4768;
+            color: white;
+        }
+    }
+}

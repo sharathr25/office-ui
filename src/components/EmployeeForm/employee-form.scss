@@ -1,0 +1,72 @@
+.employee-form {
+    background-color: #aaabaf78;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    &__body {
+        background-color: #F6F7FB;
+        flex: 0 1 33%;
+        padding: 40px;
+    }
+    &__sub-title {
+        color: darkgray;
+        font-size: 18px;
+        font-weight: lighter;
+    }
+    &__title {
+        color: gray;
+        font-size: 22px;
+        font-weight: lighter;
+    }
+    &__inputs {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 30px 75px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 2px 3px #ccc;
+    }
+    &__options {
+        display: flex;
+        flex-direction: column;
+        &-title {
+            color: gray;
+            margin: 5px;
+        }
+        &-values {
+            display: flex;
+            flex-direction: column;
+        }
+        &-value {
+            margin: 5px;
+        }
+    }
+    &__selector {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        margin: 50px 0 25px;
+        &-save {
+            background-color:#283240;
+            border-radius: 25px;
+            padding: 15px 30px;
+            color: white;
+            width: max-content;
+            align-self: flex-end;
+            font-size: 15px;
+        }
+        &-close {
+            border: 0px;
+            background-color: white;
+            margin-right: 20px;
+        }
+    }
+}
