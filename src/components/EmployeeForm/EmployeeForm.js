@@ -3,6 +3,8 @@ import Axios from 'axios';
 import qs from 'querystring';
 import './employee-form.scss';
 import Input from '../Input';
+import config from '../../../config';
+const { API_URL } = config;
 
 const EmployeeForm = (props) => {
     const { toggleForm, employee } = props;
@@ -27,7 +29,7 @@ const EmployeeForm = (props) => {
     const handleRoleChange = (e) => setRole(e.target.value);
 
     const save = () => {
-        const url = _id ? `http://localhost:3001/api/employees/${_id}` : 'http://localhost:3001/api/register'
+        const url = _id ? `${API_URL}/api/employees/${_id}` : `${API_URL}/api/register`
         const method = _id ? 'PUT' : 'POST';
         const token = sessionStorage.getItem('token');
         Axios({

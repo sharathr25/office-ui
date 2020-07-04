@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Axios from 'axios';
 import { Header } from '../../components';
+import config from '../../../config';
+const { API_URL } = config;
 import './home.scss';
 
 const Home = () => {
@@ -18,7 +20,7 @@ const Home = () => {
             const token = sessionStorage.getItem('token');
             Axios({
                 method: 'GET',
-                url: `http://localhost:3001/api/employees/${id}`,
+                url: `${API_URL}/api/employees/${id}`,
                 headers: {
                     'Authorisation': token,
                 },

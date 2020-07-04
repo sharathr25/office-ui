@@ -1,6 +1,8 @@
 import React, { useEffect, useState }  from 'react';
 import Axios from 'axios';
 import EmployeeRow from '../EmployeeRow';
+import config from '../../../config';
+const { API_URL } = config;
 import './employees.scss';
 
 const Employees = () => {
@@ -11,7 +13,7 @@ const Employees = () => {
         const token = sessionStorage.getItem('token');
         Axios({
             method: 'GET',
-            url: 'http://localhost:3001/api/employees',
+            url: `${API_URL}/api/employees`,
             headers: {
                 'Authorisation': token,
             },
@@ -31,7 +33,7 @@ const Employees = () => {
 
     const deleteEmployee = (id) => {
         Axios({
-            url: `http://localhost:3001/api/employees/${id}`,
+            url: `${API_URL}/api/employees/${id}`,
             method: 'DELETE',
             headers: {
                 'authorisation': sessionStorage.getItem('token')

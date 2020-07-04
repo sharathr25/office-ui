@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import qs from 'querystring';
 import { Input, Radio } from '../../components/index';
+import config from '../../../config';
+const { API_URL } = config;
 import './login-form.scss';
 
 const LoginForm = () => {
@@ -14,7 +16,7 @@ const LoginForm = () => {
     const handleLogin = () => {
         axios({
             method: 'POST',
-            url: `http://localhost:3001/api/login${employeeType === 'admin' ? '/admin' : ''}`,
+            url: `${API_URL}1/api/login${employeeType === 'admin' ? '/admin' : ''}`,
             data: qs.stringify({ email, password }),
             headers:  {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
