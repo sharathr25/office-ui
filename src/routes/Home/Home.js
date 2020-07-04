@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import Axios from 'axios';
 import { Header } from '../../components';
 import config from '../../../config';
@@ -8,12 +8,18 @@ import './home.scss';
 
 const Home = () => {
     const location = useLocation();
+    const history = useHistory();
     const [employee, setEmployee] = useState(null);
     const { state } = location;
 
     useEffect(() => {
+        if(!sessionStorage.getItem('token')) {
+            history.replace('/login');
+            return;
+        };
         if(state && employee in state) {
             const { employee } = state;
+            if(employee.role === 'admin') history.replace('/admin');
             setEmployee(employee);
         } else {
             const id = sessionStorage.getItem('employeeID');
@@ -26,6 +32,7 @@ const Home = () => {
                 },
             }).then((res) => {
                 const { data } = res;
+                if(data.role === 'admin') history.replace('/admin');
                 setEmployee(data);
             }).catch(err => {
                 console.log(err);

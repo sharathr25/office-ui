@@ -16,7 +16,7 @@ const LoginForm = () => {
     const handleLogin = () => {
         axios({
             method: 'POST',
-            url: `${API_URL}1/api/login${employeeType === 'admin' ? '/admin' : ''}`,
+            url: `${API_URL}/api/login${employeeType === 'admin' ? '/admin' : ''}`,
             data: qs.stringify({ email, password }),
             headers:  {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
@@ -27,7 +27,7 @@ const LoginForm = () => {
             const { token , employee } = data;
             sessionStorage.setItem('token', token);
             sessionStorage.setItem('employeeID', employee._id);
-            history.push(employeeType === 'admin' ? '/admin' : '/home', { employee })
+            history.push(employeeType === 'admin' ? '/admin' : '/', { employee })
         })
         .catch(err => {
             console.log(err);
