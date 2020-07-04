@@ -3,7 +3,7 @@ import Axios from 'axios';
 import EmployeeRow from '../EmployeeRow';
 import './employees.scss';
 
-const Employees = ({setEmployeeToUpdate}) => {
+const Employees = () => {
     const [employees, setEmployees] = useState([]);
     const [error, setError] = useState(false);
 
@@ -60,7 +60,6 @@ const Employees = ({setEmployeeToUpdate}) => {
                     <EmployeeRow    
                         employee={employee} 
                         key={i} 
-                        setEmployeeToUpdate={setEmployeeToUpdate} 
                         deleteEmployee={deleteEmployee} 
                     />
                 )}
