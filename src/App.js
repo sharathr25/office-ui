@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Redirect
 } from "react-router-dom";
 import { Login, Home, Admin } from './routes';
 
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/admin" exact>
                     <Admin />
                 </Route>
+                <Route render={() => <Redirect to="/" />} />
             </Switch>
         </Router>
     );
