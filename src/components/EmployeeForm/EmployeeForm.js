@@ -8,7 +8,7 @@ import config from '../../../config';
 const { API_URL } = config;
 
 const EmployeeForm = (props) => {
-    const { toggleForm, employee, setEmployee } = props;
+    const { toggleForm, employee, setEmployee, isAdmin } = props;
     const { name: oldName = "", email: oldEmail = "", _id, team: oldTeam = "", role: oldRole = "" } = employee || {};
     const [name, setName] = useState(oldName);
     const [email, setEmail] = useState(oldEmail);
@@ -56,10 +56,10 @@ const EmployeeForm = (props) => {
                     <Input label="Name" type="text" onChange={handleNameChange} value={name} />
                     <Input label="Email" type="text" onChange={handleEmailChange} value={email} />
                     <Input label="Password" type="password" onChange={handlePasswordChange} value={password} />
-                    <div className="employee-form__selector">   
+                    {isAdmin ? <div className="employee-form__selector">   
                         <Selector options={teams} handleChange={handleTeamChange} selectedOption={team} title="Team" />
                         <Selector options={roles} handleChange={handleRoleChange} selectedOption={role} title="Role" />
-                    </div>
+                    </div> : null}
                     <div className="employee-form__actions">
                         <button className="employee-form__actions-close" onClick={toggleForm}>Close</button>
                         <button className="employee-form__actions-save" onClick={save}>Save</button>

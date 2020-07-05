@@ -31,7 +31,7 @@ const EmployeeRow = (props) => {
                     <img className="employee-row__img" src={require('../../../__assets__/delete.svg')} onClick={handleDelete} />
                 </div>
             </div>
-            {showForm ? <EmployeeForm toggleForm={toggleForm} employee={employee} setEmployee={setEmployee} /> : null}
+            {showForm ? <EmployeeForm toggleForm={toggleForm} employee={employee} setEmployee={setEmployee} isAdmin={true} /> : null}
         </>
     );
 }

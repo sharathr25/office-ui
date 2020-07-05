@@ -63,7 +63,7 @@ const Admin = () => {
                 </div>
                 <Employees setEmployeeToUpdate={_setEmployeeToUpdate} toggleForm={toggleForm} />
             </div>
-            {showForm ? <EmployeeForm employee={employeeToUpdate} toggleForm={toggleForm} /> :   null}
+            {showForm ? <EmployeeForm employee={employeeToUpdate} toggleForm={toggleForm} isAdmin={true} /> :   null}
         </div>
     );
 }

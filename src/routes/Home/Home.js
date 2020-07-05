@@ -60,7 +60,7 @@ const Home = () => {
                     </div>
             }
         </div>
-        {showForm ? <EmployeeForm toggleForm={toggleForm} employee={employee} setEmployee={setEmployee} /> : null}
+        {showForm ? <EmployeeForm toggleForm={toggleForm} employee={employee} setEmployee={setEmployee} isAdmin={false} /> : null}
         </>
     );
 }
