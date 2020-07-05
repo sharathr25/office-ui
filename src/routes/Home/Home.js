@@ -54,7 +54,7 @@ const Home = () => {
                         <div className="home__name">{employee.name}</div>
                         <div className="home__role">{employee.role.charAt(0).toUpperCase()}{employee.role.slice(1)} Role</div>
                         <div className="home__team">{employee.team}</div>
-                        <img className="employee-row__img" src={require('../../../__assets__/edit.svg')} onClick={toggleForm} />
+                        {employee.role === "admin" || employee.role === "write"  ? <img className="employee-row__img" src={require('../../../__assets__/edit.svg')} onClick={toggleForm} /> : null}
                     </div> 
                 :   <div className="home__error">
                     </div>
