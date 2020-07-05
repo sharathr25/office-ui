@@ -3,7 +3,7 @@ const config = {
         API_URL: 'http://localhost:3001'
     },
     'production': {
-        API_URL: 'http://localhost:3001'
+        API_URL: 'https://office-server.herokuapp.com'
     },
     'test': {
         API_URL: 'http://localhost:3001'
