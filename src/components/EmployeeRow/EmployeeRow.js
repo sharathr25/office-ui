@@ -3,7 +3,8 @@ import EmployeeForm from '../EmployeeForm';
 import './employee-row.scss';
 
 const EmployeeRow = (props) => {
-    const { employee, deleteEmployee } = props;
+    const { deleteEmployee } = props;
+    const [employee, setEmployee] = useState(props.employee)
     const { name, team, role, _id } = employee;
     const [showForm, setShowForm] = useState(false);
 
@@ -30,7 +31,7 @@ const EmployeeRow = (props) => {
                     <img className="employee-row__img" src={require('../../../__assets__/delete.svg')} onClick={handleDelete} />
                 </div>
             </div>
-            {showForm ? <EmployeeForm toggleForm={toggleForm} employee={employee} /> : null}
+            {showForm ? <EmployeeForm toggleForm={toggleForm} employee={employee} setEmployee={setEmployee} /> : null}
         </>
     );
 }

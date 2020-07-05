@@ -3,11 +3,12 @@ import Axios from 'axios';
 import qs from 'querystring';
 import './employee-form.scss';
 import Input from '../Input';
+import Selector from '../Selector'
 import config from '../../../config';
 const { API_URL } = config;
 
 const EmployeeForm = (props) => {
-    const { toggleForm, employee } = props;
+    const { toggleForm, employee, setEmployee } = props;
     const { name: oldName = "", email: oldEmail = "", _id, team: oldTeam = "", role: oldRole = "" } = employee || {};
     const [name, setName] = useState(oldName);
     const [email, setEmail] = useState(oldEmail);
@@ -39,8 +40,8 @@ const EmployeeForm = (props) => {
             data: qs.stringify({ email, password, name, team, role }),
         })
         .then(res => {
-            console.log(res, "*****");
-            console.log(toggleForm)
+            const { data } = res;
+            if(setEmployee) setEmployee(data);
             toggleForm();
         })
         .catch(err => console.log(err))
@@ -56,28 +57,8 @@ const EmployeeForm = (props) => {
                     <Input label="Email" type="text" onChange={handleEmailChange} value={email} />
                     <Input label="Password" type="password" onChange={handlePasswordChange} value={password} />
                     <div className="employee-form__selector">   
-                        <div className="employee-form__options">
-                            <div className="employee-form__options-title">Team</div>
-                            <div className="employee-form__options-values">
-                                {teams.map((teamName, i) => 
-                                    <label className="employee-form__options-value" key={i}>
-                                        <input type="radio" value={teamName} onChange={handleTeamChange} checked={team === teamName} />
-                                        {teamName}
-                                    </label>
-                                )}
-                            </div>
-                        </div>
-                        <div className="employee-form__options">
-                            <div className="employee-form__options-title">Role</div>
-                            <div className="employee-form__options-values">
-                                {roles.map((roleName, i) => 
-                                    <label className="employee-form__options-value" key={i}>
-                                        <input type="radio" value={roleName} onChange={handleRoleChange} checked={role === roleName} />
-                                        {roleName.charAt(0).toUpperCase() + roleName.slice(1)}
-                                    </label>
-                                )}
-                            </div>
-                        </div>
+                        <Selector options={teams} handleChange={handleTeamChange} selectedOption={team} title="Team" />
+                        <Selector options={roles} handleChange={handleRoleChange} selectedOption={role} title="Role" />
                     </div>
                     <div className="employee-form__actions">
                         <button className="employee-form__actions-close" onClick={toggleForm}>Close</button>

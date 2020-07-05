@@ -4,6 +4,9 @@ const config = {
     },
     'production': {
         API_URL: 'http://localhost:3001'
+    },
+    'test': {
+        API_URL: 'http://localhost:3001'
     }
 }
 
